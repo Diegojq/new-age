@@ -1,0 +1,54 @@
+:root {
+  --Purple: hsl(259, 100%, 65%);
+  --Light-red: hsl(0, 100%, 67%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: aliceblue;
+  font-size: 62.5%;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.card {
+  width: 60rem;
+  height: 40rem;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 2rem 2rem 5rem 2rem;
+  background-color: #fff;
+}
+
+.form input {
+  width: 10rem;
+  height: 3rem;
+  font-size: 3rem;
+  border-radius: 1rem;
+}
+
+.card div h2 {
+  font-size: 3.2rem;
+}
+
+.form {
+  display: flex;
+  gap: 1rem;
+}
+
+.result {
+  color: var(--Purple);
+}
+
+.rojo {
+  border: 1px solid red;
+}
