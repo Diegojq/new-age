@@ -97,7 +97,7 @@ function calculateYears() {
       currentMonth - 1,
       0
     ).getDate();
-    userDays = lastDayPreviousMonth - Math.abs(userDays);
+    userDays = lastDayPreviousMonth - Math.abs(userDays) + userDays + 1;
   }
 
   resultAge.innerText = userAge;
