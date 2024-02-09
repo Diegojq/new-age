@@ -1,19 +1,19 @@
-//selectores de input
+//input selectors
 const inputMonth = document.getElementById("inputMonth");
 const inputDay = document.getElementById("inputDay");
 const inputYear = document.getElementById("inputYear");
 
-//selectores de mensaje de error
+//error message selectors
 const errorMessageMonth = document.getElementById("errorMessageMonth");
 const errorMessageDay = document.getElementById("errorMessageDay");
 const errorMessageYear = document.getElementById("errorMessageYear");
 
-//selectores de el resultado
-const resultAge = document.getElementById("años");
-const resultMonths = document.getElementById("meses");
-const resultDays = document.getElementById("dias");
+//result selectors
+const resultAge = document.getElementById("resultAge");
+const resultMonths = document.getElementById("resultMonths");
+const resultDays = document.getElementById("resultDays");
 
-//selector de enviar
+//send selector
 const submit = document.getElementById("submit");
 
 const form = document.getElementById("form");
@@ -92,12 +92,12 @@ function calculateYears() {
   Este ajuste garantiza que los días ingresados estén dentro del rango válido para el mes correspondiente, manteniendo la consistencia en el cálculo de fechas. */
   if (userDays < 0) {
     userMonths--;
-    const ultimoDiaMesAnterior = new Date(
+    const lastDayPreviousMonth = new Date(
       currentYear,
       currentMonth - 1,
       0
     ).getDate();
-    userDays = ultimoDiaMesAnterior - Math.abs(userDays);
+    userDays = lastDayPreviousMonth - Math.abs(userDays);
   }
 
   resultAge.innerText = userAge;
