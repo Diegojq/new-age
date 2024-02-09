@@ -15,25 +15,31 @@
   <body>
     <main>
       <div class="card">
-        <div class="form">
-          <div class="grup">
-            <p>MONTH</p>
-            <input id="inputMonth" type="number" placeholder="MM" />
-            <span id="errorMessageMonth"></span>
-          </div>
+        <form id="form" class="container-form">
           <div class="grup">
             <p>DAY</p>
-            <input id="inputDay" type="number" placeholder="DD" />
+            <input id="inputDay" type="number" placeholder="DD" required />
             <span id="errorMessageDay"></span>
           </div>
           <div class="grup">
+            <p>MONTH</p>
+            <input id="inputMonth" type="number" placeholder="MM" required />
+            <span id="errorMessageMonth"></span>
+          </div>
+          <div class="grup">
             <p>YEAR</p>
-            <input id="inputYear" type="number" placeholder="YYYY" />
+            <input id="inputYear" type="number" placeholder="YYYY" required />
             <span id="errorMessageYear"></span>
           </div>
-          <button id="submit" type="submit"><img src="" alt="" /></button>
-        </div>
-        <div>
+          <button id="submit" type="submit" class="button-submit">
+            <img
+              class="button-submit__image"
+              src="./assets/icon-arrow.svg"
+              alt=""
+            />
+          </button>
+        </form>
+        <div class="container-results">
           <h2><span id="años" class="result">--</span>Years</h2>
           <h2><span id="meses" class="result">--</span>Months</h2>
           <h2><span id="dias" class="result">--</span>Days</h2>

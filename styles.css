@@ -10,7 +10,7 @@
 }
 
 html {
-  background-color: aliceblue;
+  background-color: black;
   font-size: 62.5%;
 }
 
@@ -21,15 +21,29 @@ main {
   height: 100vh;
 }
 .card {
+  position: absolute;
   width: 60rem;
   height: 40rem;
   margin: 0 auto;
-  padding: 2rem;
-  border-radius: 2rem 2rem 5rem 2rem;
+  padding: 4rem;
+  border-radius: 2rem 2rem 10rem 2rem;
   background-color: #fff;
 }
 
-.form input {
+.container-form {
+  border-bottom: 0.1rem solid black;
+}
+
+form {
+  display: flex;
+  gap: 1rem;
+}
+
+.grup {
+  margin-bottom: 3rem;
+}
+
+.grup input {
   width: 10rem;
   height: 3rem;
   font-size: 3rem;
@@ -40,15 +54,27 @@ main {
   font-size: 3.2rem;
 }
 
-.form {
-  display: flex;
-  gap: 1rem;
+.button-submit {
+  position: relative;
+  top: 5rem;
+  left: 15rem;
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--Purple);
+  border-radius: 50%;
 }
 
+.button-submit__image {
+  width: 3rem;
+}
 .result {
   color: var(--Purple);
 }
 
-.rojo {
+.error {
   border: 1px solid red;
+}
+
+.container-results {
+  margin-top: 4rem;
 }

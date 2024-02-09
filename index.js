@@ -1,101 +1,119 @@
+//selectores de input
 const inputMonth = document.getElementById("inputMonth");
-const errorMessageMonth = document.getElementById("errorMessageMonth");
-
 const inputDay = document.getElementById("inputDay");
-const errorMessageDay = document.getElementById("errorMessageDay");
-
 const inputYear = document.getElementById("inputYear");
+
+//selectores de mensaje de error
+const errorMessageMonth = document.getElementById("errorMessageMonth");
+const errorMessageDay = document.getElementById("errorMessageDay");
 const errorMessageYear = document.getElementById("errorMessageYear");
 
-const años = document.getElementById("años");
-const meses = document.getElementById("meses");
-const dias = document.getElementById("dias");
+//selectores de el resultado
+const resultAge = document.getElementById("años");
+const resultMonths = document.getElementById("meses");
+const resultDays = document.getElementById("dias");
 
+//selector de enviar
 const submit = document.getElementById("submit");
 
-const handlerClick = () => {
+const form = document.getElementById("form");
+
+function validateMonth() {
+  const valueInputMonth = inputMonth.value;
+  const isEmpty = valueInputMonth.length === 0;
+  const validMonth = valueInputMonth > 0 && valueInputMonth < 13;
+
+  if (isEmpty) {
+    inputMonth.classList.add("error");
+    errorMessageMonth.innerText = "Este campo es requerido";
+  } else if (!validMonth) {
+    inputMonth.classList.add("error");
+    errorMessageMonth.innerText = "No es un mes correcto";
+  } else {
+    inputMonth.classList.remove("error");
+    errorMessageMonth.innerText = "";
+  }
+}
+
+function validateDay() {
+  const valueInputDay = inputDay.value;
+  const isEmpty = valueInputDay.length === 0;
+  const validDay = valueInputDay > 0 && valueInputDay < 32;
+
+  if (isEmpty) {
+    inputDay.classList.add("error");
+    errorMessageDay.innerText = "Este campo es requerido";
+  } else if (!validDay) {
+    inputDay.classList.add("error");
+    errorMessageDay.innerText = "No es un dia correcto";
+  } else {
+    inputDay.classList.remove("error");
+    errorMessageDay.innerText = "";
+  }
+}
+
+function validateYear() {
+  const valueInputYear = inputYear.value;
+  const isEmpty = valueInputYear.length === 0;
+
+  if (isEmpty) {
+    inputYear.classList.add("error");
+    errorMessageYear.innerText = "Este  campo es requerido";
+  } else {
+    inputYear.classList.remove("error");
+    errorMessageYear.innerText = "";
+  }
+}
+function calculateYears() {
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth() + 1;
+  const currentDay = currentDate.getDate();
+
   const valueInputDay = inputDay.value;
   const valueInputMonth = inputMonth.value;
   const valueInputYear = inputYear.value;
 
-  function month() {
-    const isEmpty = valueInputMonth.length === 0;
-    const validMonth = valueInputMonth > 0 && valueInputMonth < 13;
+  let userAge = currentYear - valueInputYear;
+  let userMonths = currentMonth - valueInputMonth;
+  let userDays = currentDay - valueInputDay;
 
-    if (isEmpty) {
-      inputMonth.classList.add("rojo");
-      errorMessageMonth.innerText = "Este campo es requerido";
-    } else if (!validMonth) {
-      inputMonth.classList.add("rojo");
-      errorMessageMonth.innerText = "No es un mes correcto";
-    } else {
-      inputMonth.classList.remove("rojo");
-      errorMessageMonth.innerText = "";
-    }
+  /*verificar si los meses ingresados por el usuario son negativos o 
+  si son cero pero el día actual es menor que el día ingresado.
+   En caso de que se cumpla alguna de estas condiciones, 
+   se decrementa la edad del usuario en un año y se ajusta el número de meses restantes para representar un valor positivo y correcto.*/
+  if (userMonths < 0 || (userMonths === 0 && currentDay < valueInputDay)) {
+    userAge--;
+    userMonths = 12 - Math.abs(userMonths);
   }
 
-  function day() {
-    const isEmpty = valueInputDay.length === 0;
-    const validDay = valueInputDay > 0 && valueInputDay < 32;
-
-    if (isEmpty) {
-      inputDay.classList.add("rojo");
-      errorMessageDay.innerText = "Este campo es requerido";
-    } else if (!validDay) {
-      inputDay.classList.add("rojo");
-      errorMessageDay.innerText = "No es un dia correcto";
-    } else {
-      inputDay.classList.remove("rojo");
-      errorMessageDay.innerText = "";
-    }
+  /* los días ingresados por el usuario son negativos, lo que indica que se necesita realizar un ajuste. En este caso, se reduce el número de meses 
+  en uno y se calculan los días restantes en el mes anterior al actual. 
+  Este ajuste garantiza que los días ingresados estén dentro del rango válido para el mes correspondiente, manteniendo la consistencia en el cálculo de fechas. */
+  if (userDays < 0) {
+    userMonths--;
+    const ultimoDiaMesAnterior = new Date(
+      currentYear,
+      currentMonth - 1,
+      0
+    ).getDate();
+    userDays = ultimoDiaMesAnterior - Math.abs(userDays);
   }
 
-  function year() {
-    const isEmpty = valueInputYear.length === 0;
+  resultAge.innerText = userAge;
+  resultMonths.innerText = userMonths;
+  resultDays.innerText = userDays;
+}
 
-    if (isEmpty) {
-      inputYear.classList.add("rojo");
-      errorMessageYear.innerText = "Este  campo es requerido";
-    } else {
-      inputYear.classList.remove("rojo");
-      errorMessageYear.innerText = "";
-    }
-  }
-
-  function calculateYears() {
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1;
-    const currentDay = currentDate.getDate();
-
-    let edad = currentYear - valueInputYear;
-    let mes = currentMonth - valueInputMonth;
-    let dia = currentDay - valueInputDay;
-
-    if (mes < 0 || (mes === 0 && currentDay < valueInputDay)) {
-      edad--;
-      mes = 12 - Math.abs(mes);
-    }
-
-    if (dia < 0) {
-      mes--;
-      const ultimoDiaMesAnterior = new Date(
-        currentYear,
-        currentMonth - 1,
-        0
-      ).getDate();
-      dia = ultimoDiaMesAnterior - Math.abs(dia);
-    }
-
-    años.innerText = edad;
-    meses.innerText = mes;
-    dias.innerText = dia;
-  }
-
-  month();
-  day();
-  year();
+const handlerSubmit = () => {
+  validateMonth();
+  validateDay();
+  validateYear();
   calculateYears();
 };
 
-submit.addEventListener("click", handlerClick);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  handlerSubmit();
+});
