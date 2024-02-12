@@ -40,41 +40,64 @@ form {
 }
 
 .grup {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 3rem;
+}
+
+.grup p {
+  letter-spacing: 0.2rem;
 }
 
 .grup input {
   width: 10rem;
-  height: 3rem;
+  height: 5rem;
+  margin-top: 0.7rem;
+  padding-left: 0.6rem;
   font-size: 3rem;
+  font-weight: 700;
+  border: 0.1rem solid gray;
   border-radius: 1rem;
 }
 
-.card div h2 {
-  font-size: 3.2rem;
+.label {
+  color: red;
+}
+
+.error {
+  border: 0.1rem solid red !important;
+}
+
+.errorMessage {
+  margin-top: 0.6rem;
+  font-size: 1rem;
+  color: red;
 }
 
 .button-submit {
   position: relative;
-  top: 5rem;
+  top: 8rem;
   left: 15rem;
   width: 5rem;
   height: 5rem;
   background-color: var(--Purple);
+  border: none;
   border-radius: 50%;
 }
 
 .button-submit__image {
   width: 3rem;
 }
+
+.container-results {
+  margin-top: 2rem;
+}
+
 .result {
+  font-size: 6rem;
   color: var(--Purple);
 }
 
-.error {
-  border: 1px solid red;
-}
-
-.container-results {
-  margin-top: 4rem;
+.container-results h2 {
+  font-size: 5rem;
 }
