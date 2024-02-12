@@ -14,7 +14,7 @@ const resultMonths = document.getElementById("resultMonths");
 const resultDays = document.getElementById("resultDays");
 
 //send selector
-const submit = document.getElementById("submit");
+const submit = document.getElementById("button-submit");
 
 const form = document.getElementById("form");
 
@@ -57,6 +57,7 @@ function validateYear() {
   const isEmpty = valueInputYear.length === 0;
 
   if (isEmpty) {
+    console.log("esta todo bien");
     inputYear.classList.add("error");
     errorMessageYear.innerText = "Este  campo es requerido";
   } else {
@@ -106,6 +107,16 @@ function calculateYears() {
 }
 
 const handlerSubmit = () => {
+  const valueInputDay = inputDay.value;
+  const valueInputMonth = inputMonth.value;
+  const valueInputYear = inputYear.value;
+
+  if (valueInputMonth === "" || valueInputDay === "" || valueInputYear === "") {
+    validateMonth();
+    validateDay();
+    validateYear();
+    return;
+  }
   validateMonth();
   validateDay();
   validateYear();
