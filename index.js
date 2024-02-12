@@ -3,6 +3,11 @@ const inputMonth = document.getElementById("inputMonth");
 const inputDay = document.getElementById("inputDay");
 const inputYear = document.getElementById("inputYear");
 
+//selector labels
+const dayLabel = document.getElementById("dayLabel");
+const monthLabel = document.getElementById("monthLabel");
+const yearLabel = document.getElementById("yearLabel");
+
 //error message selectors
 const errorMessageMonth = document.getElementById("errorMessageMonth");
 const errorMessageDay = document.getElementById("errorMessageDay");
@@ -24,12 +29,15 @@ function validateMonth() {
   const validMonth = valueInputMonth > 0 && valueInputMonth < 13;
 
   if (isEmpty) {
+    monthLabel.classList.add("label");
     inputMonth.classList.add("error");
     errorMessageMonth.innerText = "Este campo es requerido";
   } else if (!validMonth) {
+    monthLabel.classList.add("label");
     inputMonth.classList.add("error");
     errorMessageMonth.innerText = "No es un mes correcto";
   } else {
+    monthLabel.classList.remove("label");
     inputMonth.classList.remove("error");
     errorMessageMonth.innerText = "";
   }
@@ -41,12 +49,15 @@ function validateDay() {
   const validDay = valueInputDay > 0 && valueInputDay < 32;
 
   if (isEmpty) {
+    dayLabel.classList.add("label");
     inputDay.classList.add("error");
     errorMessageDay.innerText = "Este campo es requerido";
   } else if (!validDay) {
+    dayLabel.classList.add("label");
     inputDay.classList.add("error");
     errorMessageDay.innerText = "No es un dia correcto";
   } else {
+    dayLabel.classList.remove("label");
     inputDay.classList.remove("error");
     errorMessageDay.innerText = "";
   }
@@ -57,10 +68,11 @@ function validateYear() {
   const isEmpty = valueInputYear.length === 0;
 
   if (isEmpty) {
-    console.log("esta todo bien");
+    yearLabel.classList.add("label");
     inputYear.classList.add("error");
     errorMessageYear.innerText = "Este  campo es requerido";
   } else {
+    yearLabel.classList.remove("label");
     inputYear.classList.remove("error");
     errorMessageYear.innerText = "";
   }
