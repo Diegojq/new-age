@@ -5,7 +5,7 @@
 }
 
 html {
-  background-color: black;
+  background-color: #f0f0f0;
   font-family: "Poppins";
   font-size: 62.5%;
 }
@@ -52,22 +52,27 @@ form {
   padding-left: 0.6rem;
   font-size: 3rem;
   font-weight: 700;
-  border: 0.1rem solid gray;
+  color: #888888;
+  border: 0.1rem solid #888888;
   border-radius: 1rem;
 }
 
+.grup p {
+  color: #757374;
+}
+
 .label {
-  color: red;
+  color: #dc9f9f;
 }
 
 .error {
-  border: 0.1rem solid red !important;
+  border: 0.1rem solid #dc9f9f !important;
 }
 
 .errorMessage {
   margin-top: 0.6rem;
   font-size: 0.8rem;
-  color: red;
+  color: #dc9f9f;
 }
 
 .button-submit {
@@ -76,7 +81,7 @@ form {
   left: 15rem;
   width: 5rem;
   height: 5rem;
-  background-color: var(--Purple);
+  background-color: #864cff;
   border: none;
   border-radius: 50%;
 }
@@ -91,9 +96,10 @@ form {
 
 .result {
   font-size: 5rem;
-  color: var(--Purple);
+  color: #864cff;
 }
 
 .container-results h2 {
   font-size: 5rem;
+  color: #000000;
 }
