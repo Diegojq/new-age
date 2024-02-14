@@ -57,11 +57,11 @@ form {
   border-radius: 1rem;
 }
 
-.grup p {
+.formLabel {
   color: #757374;
 }
 
-.label {
+.errorLabel {
   color: #dc9f9f;
 }
 

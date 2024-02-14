@@ -29,15 +29,15 @@ function validateMonth() {
   const validMonth = valueInputMonth > 0 && valueInputMonth < 13;
 
   if (isEmpty) {
-    monthLabel.classList.add("label");
+    monthLabel.classList.add("errorLabel");
     inputMonth.classList.add("error");
     errorMessageMonth.innerText = "Este campo es requerido";
   } else if (!validMonth) {
-    monthLabel.classList.add("label");
+    monthLabel.classList.add("errorLabel");
     inputMonth.classList.add("error");
     errorMessageMonth.innerText = "No es un mes correcto";
   } else {
-    monthLabel.classList.remove("label");
+    monthLabel.classList.remove("errorLabel");
     inputMonth.classList.remove("error");
     errorMessageMonth.innerText = "";
   }
@@ -49,15 +49,15 @@ function validateDay() {
   const validDay = valueInputDay > 0 && valueInputDay < 32;
 
   if (isEmpty) {
-    dayLabel.classList.add("label");
+    dayLabel.classList.add("errorLabel");
     inputDay.classList.add("error");
     errorMessageDay.innerText = "Este campo es requerido";
   } else if (!validDay) {
-    dayLabel.classList.add("label");
+    dayLabel.classList.add("errorLabel");
     inputDay.classList.add("error");
     errorMessageDay.innerText = "No es un dia correcto";
   } else {
-    dayLabel.classList.remove("label");
+    dayLabel.classList.remove("errorLabel");
     inputDay.classList.remove("error");
     errorMessageDay.innerText = "";
   }
@@ -68,11 +68,11 @@ function validateYear() {
   const isEmpty = valueInputYear.length === 0;
 
   if (isEmpty) {
-    yearLabel.classList.add("label");
+    yearLabel.classList.add("errorLabel");
     inputYear.classList.add("error");
     errorMessageYear.innerText = "Este  campo es requerido";
   } else {
-    yearLabel.classList.remove("label");
+    yearLabel.classList.remove("errorLabel");
     inputYear.classList.remove("error");
     errorMessageYear.innerText = "";
   }
