@@ -14,6 +14,9 @@ Este proyecto es una calculadora de edad que permite al usuario ingresar su fech
 3. Haz clic en el botón "Calcular Edad".
 4. La aplicación mostrará tu edad en años, meses y días.
 
+![Diseño sin título](https://github.com/Diegojq/new-age/assets/137741139/0f85bc00-82bf-4a9f-9e13-2581be020b2e)
+
+
 ## Ejemplo de Uso
 Supongamos que la fecha de nacimiento ingresada es el 10 de octubre de 2007.
 La aplicación calculará la edad como sigue:
